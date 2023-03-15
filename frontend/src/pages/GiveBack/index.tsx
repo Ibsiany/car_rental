@@ -23,9 +23,7 @@ export function GiveBack() {
 
   const giveBack = useCallback(async () => {
     try {
-      await api.post('/carro/devolver', {
-        data,
-      });
+      await api.post('/carro/devolver', data);
 
       toast.success('Registo de carro devolvido com sucesso!');
 
@@ -33,7 +31,7 @@ export function GiveBack() {
     } catch (error) {
       toast.error('Ocorreu algum erro ao registrar devolução!');
     }
-  }, [data]);
+  }, [data, navigate]);
 
   const handleInputChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {

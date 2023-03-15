@@ -45,9 +45,7 @@ export function CreateRent() {
     try {
       data.carroId = car_id;
 
-      await api.post('/carro/aluguel', {
-        data,
-      });
+      await api.post('/carro/aluguel', data);
 
       toast.success('Carro alugado com sucesso!');
       navigate('/admin/list');
