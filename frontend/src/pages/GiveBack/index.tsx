@@ -1,6 +1,7 @@
 import React, { useCallback, useState, ChangeEvent } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 
+import { useNavigate } from 'react-router-dom';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import {
@@ -18,6 +19,8 @@ import { api } from '../../services/api';
 export function GiveBack() {
   const [data, setData] = useState<IGiveBackDTO>({} as IGiveBackDTO);
 
+  const navigate = useNavigate();
+
   const giveBack = useCallback(async () => {
     try {
       await api.post('/carro/devolver', {
@@ -25,6 +28,8 @@ export function GiveBack() {
       });
 
       toast.success('Registo de carro devolvido com sucesso!');
+
+      navigate('/admin/list');
     } catch (error) {
       toast.error('Ocorreu algum erro ao registrar devolução!');
     }
