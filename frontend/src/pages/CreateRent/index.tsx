@@ -1,7 +1,7 @@
 import React, { useCallback, ChangeEvent, useState, useEffect } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import {
@@ -30,6 +30,8 @@ export function CreateRent() {
   const [data, setData] = useState<IRentDTO>({} as IRentDTO);
   const [car, setCar] = useState<ICarDTO>({} as ICarDTO);
 
+  const navigate = useNavigate();
+
   const location = useLocation();
   const car_id = location.state;
 
@@ -41,15 +43,18 @@ export function CreateRent() {
 
   const rent = useCallback(async () => {
     try {
-      await api.post('/car/rent', {
+      data.carroId = car_id;
+
+      await api.post('/carro/aluguel', {
         data,
       });
 
       toast.success('Carro alugado com sucesso!');
+      navigate('/admin/list');
     } catch (error) {
       toast.error('Ocorreu algum erro ao alugar o carro!');
     }
-  }, [data]);
+  }, [car_id, data, navigate]);
 
   const handleInputChange = useCallback(
     (event: ChangeEvent<HTMLInputElement>) => {

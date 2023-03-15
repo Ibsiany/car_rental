@@ -20,7 +20,7 @@ export function GiveBack() {
 
   const giveBack = useCallback(async () => {
     try {
-      await api.post('/car/give-back', {
+      await api.post('/carro/devolver', {
         data,
       });
 
