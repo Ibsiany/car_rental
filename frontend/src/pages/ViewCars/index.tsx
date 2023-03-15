@@ -29,7 +29,7 @@ export function ViewCars() {
   const user = location.state as IUserDTO;
 
   useEffect(() => {
-    api.get(`/carro/${user.id}`).then(response => {
+    api.get(`/carro/alugados/${user.id}`).then(response => {
       setCars(response.data);
     });
   }, [user]);
@@ -46,27 +46,21 @@ export function ViewCars() {
         <ContainerCars>
           {cars.map(car => {
             return (
-              car.disponibilidade && (
-                <ContainerCar key={car.id}>
-                  <Title>{car.nome}</Title>
-                  <ContainerCarInfo>
-                    <ContainerImage>
-                      <Image src={logo} alt="logo" />
-                    </ContainerImage>
-                    <ContainerText>
-                      <Details>{car.modelo}</Details>
-                      <Details>{car.combustivel}</Details>
-                      <Details>{car.motor}</Details>
-                      <Details>{car.potencia}</Details>
-                      <Details className="last">{car.valorDia}</Details>
-
-                      <Link to="/rent/create" id="rent-create" state={car.id}>
-                        ALUGAR
-                      </Link>
-                    </ContainerText>
-                  </ContainerCarInfo>
-                </ContainerCar>
-              )
+              <ContainerCar key={car.id}>
+                <Title>{car.nome}</Title>
+                <ContainerCarInfo>
+                  <ContainerImage>
+                    <Image src={logo} alt="logo" />
+                  </ContainerImage>
+                  <ContainerText>
+                    <Details>{car.modelo}</Details>
+                    <Details>{car.combustivel}</Details>
+                    <Details>{car.motor}</Details>
+                    <Details>{car.potencia}</Details>
+                    <Details className="last">{car.valorDia}</Details>
+                  </ContainerText>
+                </ContainerCarInfo>
+              </ContainerCar>
             );
           })}
         </ContainerCars>
