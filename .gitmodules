@@ -1,0 +1,3 @@
+[submodule "automobiles-api"]
+	path = automobiles-api
+	url = https://github.com/rafaelc-teixeira/automobiles-api.git
