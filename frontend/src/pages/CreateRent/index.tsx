@@ -48,7 +48,7 @@ export function CreateRent() {
       await api.post('/carro/aluguel', data);
 
       toast.success('Carro alugado com sucesso!');
-      navigate('/admin/list');
+      navigate('/rent');
     } catch (error) {
       toast.error('Ocorreu algum erro ao alugar o carro!');
     }

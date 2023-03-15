@@ -27,7 +27,7 @@ export function GiveBack() {
 
       toast.success('Registo de carro devolvido com sucesso!');
 
-      navigate('/admin/list');
+      navigate('/rent');
     } catch (error) {
       toast.error('Ocorreu algum erro ao registrar devolução!');
     }
