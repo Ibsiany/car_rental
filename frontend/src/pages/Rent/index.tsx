@@ -50,11 +50,14 @@ export function Rent() {
                       <Image src={logo} alt="logo" />
                     </ContainerImage>
                     <ContainerText>
-                      <Details>{car.modelo}</Details>
-                      <Details>{car.combustivel}</Details>
-                      <Details>{car.motor}</Details>
-                      <Details>{car.potencia}</Details>
-                      <Details className="last">{car.valorDia}</Details>
+                      <Details>Modelo: {car.modelo}</Details>
+                      <Details>Combustivel: {car.combustivel}</Details>
+                      <Details>Motor: {car.motor}</Details>
+                      <Details>Potencia: {car.potencia}</Details>
+                      <Details>Valor p/ dia: {car.valorDia}</Details>
+                      <Details className="last">
+                        Multa de atraso: {car.taxa}
+                      </Details>
 
                       <Link to="/rent/create" id="rent-create" state={car.id}>
                         ALUGAR
