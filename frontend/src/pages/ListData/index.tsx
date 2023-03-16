@@ -112,6 +112,7 @@ export function ListData() {
                 <tr>
                   <th>NOME</th>
                   <th>CPF</th>
+                  <th>USUÁRIO</th>
                   <th>AÇÕES</th>
                 </tr>
               </thead>
@@ -121,11 +122,12 @@ export function ListData() {
                     <tr key={user.id}>
                       <td>{user.nome}</td>
                       <td>{user.cpf}</td>
+                      <td>{user.admin ? 'Administrador' : 'Padrão'}</td>
                       <td>
                         <Button type="button">
                           <Link
                             to="/admin/edit-user"
-                            state={[user.id, user.nome]}
+                            state={user.id}
                             id={user.id.toString()}
                           >
                             Editar
@@ -160,6 +162,7 @@ export function ListData() {
                   <th>NOME</th>
                   <th>MODELO</th>
                   <th>PLACA</th>
+                  <th>Disponibilidade</th>
                   <th>AÇÕES</th>
                 </tr>
               </thead>
@@ -170,6 +173,7 @@ export function ListData() {
                       <td>{car.nome}</td>
                       <td>{car.modelo}</td>
                       <td>{car.placa}</td>
+                      <td>{car.disponibilidade ? 'Sim' : 'Não'}</td>
                       <td>
                         <Button type="button">
                           <Link

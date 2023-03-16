@@ -86,6 +86,7 @@ export function CreateRent() {
                 <Details>Valor por dia: {car.valorDia}</Details>
                 <Details>Taxa de atraso: {car.taxa}</Details>
                 <Details className="last">Descrição: {car.descricao}</Details>
+                <Details className="palte">Placa: {car.placa}</Details>
               </ContainerText>
             </ContainerCarInfo>
           </ContainerCar>

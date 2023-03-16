@@ -69,6 +69,9 @@ export const ContainerText = styled.div`
   .last {
     margin-bottom: 0.5rem;
   }
+  .palte {
+    color: red;
+  }
 `;
 
 export const ContainerImage = styled.div`
