@@ -36,7 +36,7 @@ export function ListData() {
   }, []);
 
   useEffect(() => {
-    api.get(`/carros`).then(response => {
+    api.get(`/carro/carros`).then(response => {
       setCar(response.data);
     });
   }, []);
